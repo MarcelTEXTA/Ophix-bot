@@ -11,7 +11,7 @@ intents.message_content = True
 
 class OphixBot(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix="/", intents=intents)
+        super().__init__(command_prefix="!", intents=intents)
 
     async def setup_hook(self):
         """Listes des cogs"""

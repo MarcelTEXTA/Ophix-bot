@@ -14,6 +14,7 @@ class OphixBot(commands.Bot):
         super().__init__(command_prefix="/", intents=intents)
 
     async def setup_hook(self):
+        """Listes des cogs"""
         # await self.load_extension("cogs.assistant")
         await self.load_extension("cogs.general")
         # await self.load_extension("cogs.goodbye")
@@ -26,6 +27,6 @@ bot = OphixBot()
 
 @bot.event
 async def on_ready():
-    print(f"✅ Connecté en tant que {bot.user}")
+    print(f"Connecté en tant que {bot.user}")
 
 bot.run(TOKEN)

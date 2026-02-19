@@ -1,5 +1,6 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
+from discord import app_commands
 from dotenv import load_dotenv
 import os
 
@@ -11,7 +12,7 @@ intents.message_content = True
 
 class OphixBot(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix="!", intents=intents)
+        super().__init__(command_prefix="/", intents=intents)
 
     async def setup_hook(self):
         """Listes des cogs"""

@@ -28,6 +28,16 @@ class General(commands.Cog):
     async def ping(self, interaction: discord.Interaction):
         await interaction.response.send_message(f"🏓 Pong ! {round(self.bot.latency * 1000)}ms")
 
+    # --- Commande Welcome ---
+    @app_commands.command(name="welcome", description="Affiche un message de bienvenue")
+    async def welcome_command(self, interaction: discord.integrations):
+        embed = discord.Embed(
+            title="Bienvenue sur le serveur !",
+            description="Nous sommes ravis de t'accueillir parmi nous ! N'hésite pas à te présenter et à participer aux discussions !",
+            color=0x5865F2
+        )
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
 
 # Fonction d'initialisation du cog
 

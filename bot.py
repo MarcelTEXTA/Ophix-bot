@@ -1,33 +1,32 @@
 import discord
-from discord.ext import commands, tasks
-from discord import app_commands
-from dotenv import load_dotenv
+from discord.ext import commands
 import os
+import asyncio
+from config import PREFIX
+from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-class OphixBot(commands.Bot):
-    def __init__(self):
-        super().__init__(command_prefix="/", intents=intents)
-
-    async def setup_hook(self):
-        """Listes des cogs"""
-        # await self.load_extension("cogs.assistant")
-        await self.load_extension("cogs.general")
-        # await self.load_extension("cogs.goodbye")
-        # await self.load_extension("cogs.ia_bot")
-        # await self.load_extension("cogs.welcome")
-        # await self.load_extension("cogs.level")
-        await self.tree.sync()
-
-bot = OphixBot()
+bot = commands.Bot(
+    command_prefix=PREFIX,
+    intents=intents,
+    help_command=None
+)
 
 @bot.event
 async def on_ready():
+    await bot.tree.sync()
     print(f"Connecté en tant que {bot.user}")
 
-bot.run(TOKEN)
+async def main():
+    async with bot:
+        for filename in os.listdir("./cogs"):
+            if filename.endswith(".py") and not filename.startswith("__"):
+                await bot.load_extension(f"cogs.{filename[:-3]}")
+        
+        await bot.start(os.getenv("DISCORD_TOKEN"))
+
+asyncio.run(main())

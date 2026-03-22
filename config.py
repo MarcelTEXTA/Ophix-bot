@@ -1,0 +1,3 @@
+PREFIX = "!"
+
+COLOR = 0x2F3136

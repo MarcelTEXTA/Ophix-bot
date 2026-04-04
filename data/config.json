@@ -7,5 +7,14 @@
                 "message": "Bien jou\u00e9 vous avez trouvez la commande du bot !"
             }
         ]
+    },
+    "1477378132020428963": {
+        "intro": "Bienvenue sur Astronomia. Je peux vous aider \u00e0 vous guider sur ce serveur !",
+        "buttons": [
+            {
+                "label": "hors sujet",
+                "message": "Ce salon est pour que vous puissiez parler de tout et n'importe quoi pour garder une communaut\u00e9 active !"
+            }
+        ]
     }
 }

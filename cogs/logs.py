@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-LOG_CHANNEL_ID = 1465962171685933068
+LOG_CHANNEL_ID = 1465962171685933068 # support
 
 class Logs(commands.Cog):
     def __init__(self, bot):

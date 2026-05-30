@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ophix Bot | Gestion de Tickets Open Source</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1; /* Indigo moderne */
+            --primary-hover: #4f46e5;
+            --bg: #0f172a; /* Bleu nuit très sombre */
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px); /* Effet de flou moderne */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .title-nav h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .links-nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .links-nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            padding: 160px 20px 100px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        header h2 {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- Main Content --- */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Grille de fonctionnalités */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .links-nav { display: none; } /* On pourrait ajouter un menu burger ici */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="title-nav">
+            <h1>Ophix bot</h1>
+        </div>
+        <div class="links-nav">
+            <a href="index.html">Accueil</a>
+            <a href="terms.html">Conditions d'utilisation</a>
+            <a href="privacy.html">Politique de confidentialité</a>
+            <a href="about.html">À propos</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Gérez vos tickets avec simplicité.</h1>
+        <h2>L'outil open source puissant pour transformer le support de votre communauté Discord en une expérience fluide.</h2>
+        <a href="#presentation" class="cta-button">Découvrir le projet</a>
+        <a href="https://discord.com/invite/uXCmwQ8fhB" class="cta-button" target="_blank" rel="noopener noreferrer">Rejoindre le serveur Discord</a>
+    </header>
+
+    <main>
+        <div class="features-grid">
+            <section id="presentation" class="card">
+                <h3>Présentation</h3>
+                <p>Ophix bot est conçu pour faciliter la résolution de problèmes. Avec une interface intuitive et des fonctionnalités puissantes, gérez efficacement les demandes de support et les questions de vos membres sans friction.</p>
+            </section>
+
+            <section id="community" class="card">
+                <h3>Notre communauté</h3>
+                <p>Rejoignez notre serveur Discord actif. Partagez vos idées, posez vos questions et contribuez au développement d'un outil fait par et pour la communauté.</p>
+            </section>
+
+            <section id="about" class="card">
+                <h3>Open Source</h3>
+                <p>La transparence est au cœur d'Ophix. Le code est accessible, auditable et ouvert aux contributions. Ensemble, améliorons continuellement la gestion des interactions en ligne.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ophix Bot. Propulsé par la passion de l'Open Source.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling amélioré pour les liens
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80, // Offset pour la nav fixe
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

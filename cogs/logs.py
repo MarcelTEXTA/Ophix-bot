@@ -46,7 +46,7 @@ class Logs(commands.Cog):
             if owner:
                 embed.add_field(
                     name="Propriétaire",
-                    value=(owner.id), # prolème identifié ici
+                    value=(owner.id),
                     inline=False
                 )
             else:

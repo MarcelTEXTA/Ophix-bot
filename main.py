@@ -9,6 +9,8 @@ load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.guilds = True
+intents.members = True
 
 bot = commands.Bot(
     command_prefix=PREFIX,
@@ -18,7 +20,14 @@ bot = commands.Bot(
 
 @bot.event
 async def on_ready():
-    await bot.tree.sync()
+    try:
+        synced = await bot.tree.sync()
+        print(f"{len(synced)} commandes synchronisées")
+    except Exception as e:
+        print(e)
+    for cmd in synced:
+        print(cmd.name)
+
     print(f"Connecté en tant que {bot.user}")
 
 async def main():
